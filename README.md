@@ -1,14 +1,14 @@
-## BharatVaccineSlotNotifier
+# BharatVaccineSlotNotifier
 This application checks the CoWIN portal periodically to find vaccination center slots availability in your area identified by your area pin code and for your age. If found, it will send you emails every minute until the slots are available.
 
 
-# Steps to run the script
+## Steps to run the script
 
 - Enable application access on your gmail with steps given here: [GMAIL App Password Generation]
 
 
 
-- Enter the details in the file .env, present in the same folder
+- Create a .env file in the root directory and fill the details as given in the .env.sample file.
 
 
 

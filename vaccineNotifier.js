@@ -47,7 +47,7 @@ function getSlotsForDateAndPIN(date, pincode) {
             let validSlots = sessions.filter(slot => slot.min_age_limit <= AGE &&  slot.available_capacity > 0)
             console.log({date, pincode, validSlots: validSlots.length})
             if(validSlots.length > 0) {
-                notifyMe(validSlots);
+                notifyMe(validSlots, date);
             }
         })
         .catch(function (error) {
@@ -57,9 +57,9 @@ function getSlotsForDateAndPIN(date, pincode) {
 
 async function
 
-notifyMe(validSlots){
+notifyMe(validSlots, date){
     let slotDetails = JSON.stringify(validSlots, null, '\t');
-    notifier.sendEmail(SENDER_EMAIL, RECEIVER_EMAILS, 'VACCINE BOOKING AVAILABLE - ', slotDetails, (err, result) => {
+    notifier.sendEmail(SENDER_EMAIL, RECEIVER_EMAILS, 'VACCINE BOOKING AVAILABLE - ' + date, slotDetails, (err, result) => {
         if(err) {
             console.error({err});
         }
